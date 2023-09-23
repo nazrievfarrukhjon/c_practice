@@ -14,7 +14,7 @@
 #include <netdb.h>
 
 //standart HTTP port
-#define SERVER_PORT 80
+#define SERVER_PORT 18000
 
 #define MAXLINE 4096
 #define SA struct sockaddr

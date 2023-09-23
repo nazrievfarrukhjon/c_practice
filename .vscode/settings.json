@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "string.h": "c",
+        "common.h": "c",
+        "string": "c",
+        "__config": "c",
+        "__locale": "c",
+        "__verbose_abort": "c",
+        "bitset": "c",
+        "cstdlib": "c",
+        "ios": "c",
+        "iosfwd": "c",
+        "locale": "c",
+        "stdexcept": "c",
+        "string_view": "c",
+        "system_error": "c",
+        "typeinfo": "c",
+        "version": "c"
+    }
+}

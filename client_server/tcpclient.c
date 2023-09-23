@@ -13,7 +13,7 @@
 #include <sys/ioctl.h>
 #include <netdb.h>
 
-//standart HTTP port
+//standard HTTP port
 #define SERVER_PORT 80
 
 #define MAXLINE 4096
@@ -65,4 +65,28 @@ int main(int argc, char **argv)
         err_n_die("read error");
     
     exit(0);
+}
+
+void err_n_die(const char *fmt, ...) {
+    int errno_save;
+    va_list ap;
+
+    //any system or library call can set errno, so we need to save it now
+    errno_save = errno;
+    //print out the fmt+args to standart out
+    va_start(ap, fmt);
+    vfprintf(stdout, fmt,ap);
+    fprintf(stdout, "\n");
+    fflush(stdout);
+
+    // print out error message is errno was set.
+    if (errno_save != 0) {
+        fprintf(stdout, "(errno = %d) : %s\n", errno_save, strerror(errno_save));
+        fprintf(stdout, "\n");
+        fflush(stdout);
+    }
+    va_end(ap);
+    
+    //
+    exit(1);
 }

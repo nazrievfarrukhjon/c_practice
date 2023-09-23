@@ -7,6 +7,7 @@
  - &myVar gets address of myVar
  - pointers strongly typed
  - can point to null
+ 
  */
 
 //assosiate pointer to address literals

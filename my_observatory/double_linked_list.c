@@ -11,6 +11,7 @@ int main() {
     struct node n1, n2, n3, n4;
 
     n1.next = &n2;
+    // without asigning next to NULL here caused error segmentation blablabla 
     n1.prev = NULL;
     n1.value = 1;
 
@@ -24,7 +25,7 @@ int main() {
     n3.prev = &n2;
     n3.value = 3;
     
-    //
+    // without asigning next to NULL here caused error segmentation blablabla 
     n4.next = NULL;
     n4.prev = &n3;
     n4.value = 4;

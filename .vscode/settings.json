@@ -16,6 +16,9 @@
         "system_error": "c",
         "typeinfo": "c",
         "version": "c",
-        "_types.h": "c"
+        "_types.h": "c",
+        "new": "c",
+        "ostream": "c",
+        "tuple": "c"
     }
 }

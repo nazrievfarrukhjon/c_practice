@@ -15,6 +15,7 @@
         "string_view": "c",
         "system_error": "c",
         "typeinfo": "c",
-        "version": "c"
+        "version": "c",
+        "_types.h": "c"
     }
 }

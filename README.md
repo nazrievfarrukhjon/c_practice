@@ -7,7 +7,7 @@
  # Pointers work with addresses only
  - pointers literals are addresses only
  - &someVariable - by ampersant we get address of a var
-
+ - method return type can be pointer int *lol(){} 
  - NULL is only for pointers
  - struct cannot be null. It already allocates data
-- struct node *temp; it is a pointer to a struct which means adress of a struct alocated memory
+ - struct node *temp; it is a pointer to a struct which means adress of a struct alocated memory

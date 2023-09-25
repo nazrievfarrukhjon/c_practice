@@ -19,6 +19,8 @@
         "_types.h": "c",
         "new": "c",
         "ostream": "c",
-        "tuple": "c"
+        "tuple": "c",
+        "uthash.h": "c",
+        "__node_handle": "c"
     }
 }

@@ -2,73 +2,64 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TABLE_SIZE 10
+// Define the size of the hash table
+#define TABLE_SIZE 1000
 
-// Define a structure for key-value pairs
-struct KeyValue {
+// Structure for a key-value pair
+struct KeyValuePair
+{
     char *key;
     int value;
-    struct KeyValue *next;
 };
 
-// Define a hash table as an array of pointers to KeyValue structures
-struct KeyValue *hash_table[TABLE_SIZE];
+struct KeyValuePair *table[TABLE_SIZE];
 
-// Hash function to convert a key into an index
-unsigned int hash(const char *key) {
+// Hash function (this is a simple example; real-world hash functions are more complex)
+unsigned int hash(char *key)
+{
     unsigned int hash = 0;
-    while (*key) {
-        hash = (hash * 31) + *key;
-        key++;
+    while (*key)
+    {
+        hash = (hash << 5) + *key++;
     }
     return hash % TABLE_SIZE;
 }
 
-// Function to insert a key-value pair into the hash table
-void insert(const char *key, int value) {
-    unsigned int index = hash(key);
-    
-    // Create a new KeyValue node
-    struct KeyValue *new_pair = malloc(sizeof(struct KeyValue));
-    new_pair->key = strdup(key);
-    new_pair->value = value;
-    new_pair->next = NULL;
-
-    // Check for collisions and handle them using chaining
-    if (hash_table[index] == NULL) {
-        hash_table[index] = new_pair;
-    } else {
-        struct KeyValue *current = hash_table[index];
-        while (current->next != NULL) {
-            current = current->next;
-        }
-        current->next = new_pair;
+// Initialize a hash table
+void createHashTable()
+{
+    for (int i = 0; i < TABLE_SIZE; i++)
+    {
+        table[i] = NULL;
     }
 }
 
-// Function to retrieve the value associated with a key
-int get(const char *key) {
+// Insert a key-value pair into the hash table
+void insert(char *key, int value)
+{
+    struct KeyValuePair *kvp = (struct KeyValuePair *)malloc(sizeof(struct KeyValuePair));
+    
     unsigned int index = hash(key);
+    kvp->key = strdup(key);
+    kvp->value = value;
 
-    struct KeyValue *current = hash_table[index];
-    while (current != NULL) {
-        if (strcmp(current->key, key) == 0) {
-            return current->value;
-        }
-        current = current->next;
-    }
-
-    // Key not found
-    return -1;
+    // Insert it into the appropriate bucket
+    table[index] = kvp;
 }
 
-int main() {
-    insert("apple", 5);
-    insert("banana", 10);
-    
-    printf("Value for 'apple': %d\n", get("apple"));
-    printf("Value for 'banana': %d\n", get("banana"));
-    printf("Value for 'cherry': %d\n", get("cherry"));
-    
+int main(int argc, char *argv[])
+{
+    createHashTable();
+
+    for(int i = 0; i < 1000; i++) {
+        char name[10];
+        snprintf(name, sizeof(name), "name%d", i);
+        insert(name, i);
+    }
+    printf("%c", '\n');
+    int hash_index  = hash("name1");
+    printf("-> RESULT. val: %d, key: %s, hash_index: %d;\n", table[hash_index]->value, table[hash_index]->key, hash_index);
+    printf("%c", '\n');
+
     return 0;
 }

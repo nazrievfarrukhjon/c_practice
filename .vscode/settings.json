@@ -21,6 +21,17 @@
         "ostream": "c",
         "tuple": "c",
         "uthash.h": "c",
-        "__node_handle": "c"
+        "__node_handle": "c",
+        "__hash_table": "c",
+        "__threading_support": "c",
+        "functional": "c",
+        "unordered_map": "c",
+        "memory": "c",
+        "optional": "c",
+        "variant": "c",
+        "vector": "c",
+        "__availability": "c",
+        "__bit_reference": "c",
+        "algorithm": "c"
     }
 }

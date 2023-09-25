@@ -3,7 +3,7 @@
 #include <string.h>
 
 // Define the size of the hash table
-#define TABLE_SIZE 1000
+#define TABLE_SIZE 1000000
 
 // Structure for a key-value pair
 struct KeyValuePair
@@ -38,7 +38,7 @@ void createHashTable()
 void insert(char *key, int value)
 {
     struct KeyValuePair *kvp = (struct KeyValuePair *)malloc(sizeof(struct KeyValuePair));
-    
+
     unsigned int index = hash(key);
     kvp->key = strdup(key);
     kvp->value = value;
@@ -49,15 +49,32 @@ void insert(char *key, int value)
 
 int main(int argc, char *argv[])
 {
-    createHashTable();
-
-    for(int i = 0; i < 1000; i++) {
-        char name[10];
-        snprintf(name, sizeof(name), "name%d", i);
-        insert(name, i);
+    if (argc != 2)
+    {
+        fprintf(stderr, "Usage: %s <search_key>\n", argv[0]);
+        return 1;
     }
+
+    // get console input arg as search key
+    char *input = argv[1];
+
+    int hash_index = hash("name1");
+    if (table[hash_index] == NULL) {
+        for (int i = 0; i < TABLE_SIZE; i++)
+        {
+            char name[10];
+            snprintf(name, sizeof(name), "name%d", i);
+            insert(name, i);
+        }
+    }
+
     printf("%c", '\n');
-    int hash_index  = hash("name1");
+    hash_index = hash(input);
+    
+    if(table[hash_index] == NULL) {
+        printf("%s", "not found\n");
+        exit(1);
+    }
     printf("-> RESULT. val: %d, key: %s, hash_index: %d;\n", table[hash_index]->value, table[hash_index]->key, hash_index);
     printf("%c", '\n');
 

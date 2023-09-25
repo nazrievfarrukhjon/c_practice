@@ -2,19 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Define the size of the hash table
 #define TABLE_SIZE 100000000
-
-// Structure for a key-value pair
-struct KeyValuePair
-{
-    char *key;
-    int value;
-};
 
 char *table[TABLE_SIZE];
 
-// Hash function (this is a simple example; real-world hash functions are more complex)
 unsigned int hash(const char *key)
 {
     unsigned int hash = 0;
@@ -25,19 +16,14 @@ unsigned int hash(const char *key)
     return hash % TABLE_SIZE;
 }
 
-// Initialize a hash table
 void createHashTable()
 {
-    // Use calloc to allocate and initialize memory to zero
     memset(table, 0, sizeof(char *) * TABLE_SIZE);
 }
 
-// Insert a key-value pair into the hash table
 void insert(char *key)
 {
     unsigned int index = hash(key);
-
-    // Insert it into the appropriate bucket
     table[index] = strdup(key);
 }
 
@@ -48,7 +34,7 @@ void find(char *input)
     if (isTablePopulated == 0)
     {
         printf("%s\n", "entered to populate");
-        createHashTable(); // Initialize the hash table if it's not already
+        createHashTable();
         for (int i = 0; i < TABLE_SIZE; i++)
         {
             char name[10];
@@ -56,6 +42,7 @@ void find(char *input)
             insert(name);
         }
         isTablePopulated = 1;
+        printf("%s\n", "finished to populate");
     }
 
     printf("%c", '\n');
@@ -64,11 +51,12 @@ void find(char *input)
     if (table[hash_index] == NULL)
     {
         printf("%s", "not found\n");
-        exit(1);
+    } else {
+        printf("-> RESULT: %s, hash_index: %d;\n", table[hash_index], hash_index);
     }
 
-    printf("-> RESULT: %s, hash_index: %d;\n", table[hash_index], hash_index);
     printf("%c", '\n');
+
 }
 
 
@@ -80,7 +68,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // get console input arg as search key
     char *input = argv[1];
     while (strcmp(input, "exit") != 0)
     {

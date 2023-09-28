@@ -33,5 +33,6 @@
         "__availability": "c",
         "__bit_reference": "c",
         "algorithm": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }

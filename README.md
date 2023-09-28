@@ -11,3 +11,16 @@
  - NULL is only for pointers
  - struct cannot be null. It already allocates data
  - struct node *temp; it is a pointer to a struct which means adress of a struct alocated memory
+
+
+
+
+
+> ARDUINO UNO 
+- brew install avrdude
+- brew install avr-gcc
+- ls /dev/cu.*  #for finding usb port
+- avr-gcc -mmcu=atmega328p -o your_program.elf your_program.c
+- avr-objcopy -O ihex -R .eeprom your_program.elf your_program.hex
+- avrdude -c arduino -p atmega328p -P /dev/ttyACM0 -b 115200 -U flash:w:your_program.hex
+- (avrdude -c arduino -p atmega328p -P /dev/cu.usbserial-1130 -b 115200 -U flash:w:blink.hex)

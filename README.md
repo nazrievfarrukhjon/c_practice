@@ -24,3 +24,9 @@
 - avr-objcopy -O ihex -R .eeprom your_program.elf your_program.hex
 - avrdude -c arduino -p atmega328p -P /dev/ttyACM0 -b 115200 -U flash:w:your_program.hex
 - (avrdude -c arduino -p atmega328p -P /dev/cu.usbserial-1130 -b 115200 -U flash:w:blink.hex)
+
+> docker
+- docker build -t my_assembly_image .
+- docker run -it my_assembly_image bash
+
+> assembly

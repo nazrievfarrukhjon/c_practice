@@ -31,6 +31,10 @@
 - docker exec -it {id} /bin/sh
 
 > assembly
+1) linux
 - aarch64-linux-gnu-as -o my_file.o my_file.s
 - aarch64-linux-gnu-ld -o lol lol.o
 - ./lol
+
+2) macm1 aarch64
+ld hello.o -o hello -l System -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start

@@ -3,8 +3,8 @@ FROM ubuntu:latest
 # Switch to root user
 USER root
 
-# Install build essentials (including GCC and Clang)
-RUN apt-get update && apt-get install -y build-essential clang nano
+# Install build essentials (including GCC, Clang, Nano, and ARM assembly compiler)
+RUN apt-get update && apt-get install -y build-essential clang nano binutils-aarch64-linux-gnu
 
 # Create a non-root user 'admin' with UID and GID set to 1000
 RUN useradd -ms /bin/bash admin

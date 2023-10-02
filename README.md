@@ -28,5 +28,9 @@
 > docker
 - docker build -t my_assembly_image .
 - docker run -it my_assembly_image bash
+- docker exec -it {id} /bin/sh
 
 > assembly
+- aarch64-linux-gnu-as -o my_file.o my_file.s
+- aarch64-linux-gnu-ld -o lol lol.o
+- ./lol

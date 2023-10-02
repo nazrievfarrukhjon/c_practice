@@ -4,9 +4,9 @@ FROM ubuntu:latest
 USER root
 
 # Install build essentials (including GCC and Clang)
-RUN apt-get update && apt-get install -y build-essential clang && apt-get install -y nano
+RUN apt-get update && apt-get install -y build-essential clang nano
 
-# Create a non-root user 'farruq' with UID and GID set to 1000
+# Create a non-root user 'admin' with UID and GID set to 1000
 RUN useradd -ms /bin/bash admin
 
 # Switch back to the non-root user

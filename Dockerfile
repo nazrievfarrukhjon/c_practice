@@ -4,7 +4,16 @@ FROM ubuntu:latest
 USER root
 
 # Install build essentials (including GCC and Clang)
-RUN apt-get update && apt-get install -y build-essential clang
+RUN apt-get update && apt-get install -y build-essential clang && apt-get install -y nano
 
-# Switch back to a non-root user if desired (for security reasons)
-USER nonrootuser
+# Create a non-root user 'farruq' with UID and GID set to 1000
+RUN useradd -ms /bin/bash admin
+
+# Switch back to the non-root user
+USER admin
+
+# Set the working directory to the user's home directory
+WORKDIR /home/admin
+
+# Entry point
+CMD ["/bin/bash"]

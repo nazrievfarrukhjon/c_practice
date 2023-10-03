@@ -71,3 +71,9 @@ _main:
     section .data
 str:    db      "holaaaa"
 .len:   equ     $ - str
+
+
+> x32
+nasm -f elf64 salam.asm -o salam.o
+ld salam.o -o salam
+./salam

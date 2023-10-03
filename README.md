@@ -17,10 +17,57 @@
 
 
 > ARDUINO UNO 
-- brew install avrdude
 - brew install avr-gcc
-- ls /dev/cu.*  #for finding usb port
+- brew install avrdude
+- ls /dev/cu.*  #for finding usb port on mac
 - avr-gcc -mmcu=atmega328p -o your_program.elf your_program.c
 - avr-objcopy -O ihex -R .eeprom your_program.elf your_program.hex
 - avrdude -c arduino -p atmega328p -P /dev/ttyACM0 -b 115200 -U flash:w:your_program.hex
 - (avrdude -c arduino -p atmega328p -P /dev/cu.usbserial-1130 -b 115200 -U flash:w:blink.hex)
+
+> docker
+- docker build -t my_assembly_image .
+- docker run -it my_assembly_image bash
+- docker exec -it {id} /bin/sh
+
+> assembly
+1) linux
+- aarch64-linux-gnu-as -o my_file.o my_file.s
+- aarch64-linux-gnu-ld -o my_file my_file.o
+- ./lol
+
+2) macm1 aarch64
+hexdump hello.o
+nasm 
+xcrun -sdk macosx --show-sdk-path   # location of sys libraries
+-l System -syslibroot               # linking system root
+-e                                  # start point of assembly
+as my_file.s -o my_file.o 
+ld my_file.o -o my_file -l System -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start
+
+
+-
+> assembly x86 on mac
+- nasm -f macho64 hello.asm
+- ld -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _main hello.o
+
+hello.asm
+
+
+        global _main
+        section .text
+
+_main:
+        mov     rax, 0x2000004 ; write
+        mov     rdi, 1 ; stdout
+        mov     rsi, str
+        mov     rdx, str.len
+        syscall
+
+        mov     rax, 0x2000001 ; exit
+        xor     rdi, rdi
+        syscall
+
+    section .data
+str:    db      "holaaaa"
+.len:   equ     $ - str

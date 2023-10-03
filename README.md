@@ -37,5 +37,8 @@
 - ./lol
 
 2) macm1 aarch64
+xcrun -sdk macosx --show-sdk-path   # location of sys libraries
+-l System -syslibroot               # linking system root
+-e                                  # start point of assembly
 as my_file.s -o my_file.o 
 ld my_file.o -o my_file -l System -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start

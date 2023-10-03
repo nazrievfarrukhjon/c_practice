@@ -72,8 +72,13 @@ _main:
 str:    db      "holaaaa"
 .len:   equ     $ - str
 
-
-> x32
+>64 intel
 nasm -f elf64 salam.asm -o salam.o
 ld salam.o -o salam
 ./salam
+
+> x32 intel
+- docker run -it c_practice-ubuntu:latest bash
+- nasm -f elf32 lol.asm -o lol.o 
+- ld -m elf_i386 lol.o -o lol
+./lol

@@ -1,12 +1,9 @@
-FROM amd64/ubuntu:20.04
+FROM esolang/x86asm-nasm:latest
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
-    clang \
-    nano \
-    binutils \
-    && rm -rf /var/lib/apt/lists/*
+    nano
 
 RUN groupadd -g 1000 admin && \
     useradd -u 1000 -g admin -m -s /bin/bash admin

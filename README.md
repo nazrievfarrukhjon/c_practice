@@ -37,8 +37,37 @@
 - ./lol
 
 2) macm1 aarch64
+hexdump hello.o
+nasm 
 xcrun -sdk macosx --show-sdk-path   # location of sys libraries
 -l System -syslibroot               # linking system root
 -e                                  # start point of assembly
 as my_file.s -o my_file.o 
 ld my_file.o -o my_file -l System -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start
+
+
+-
+> assembly x86 on mac
+- nasm -f macho64 hello.asm
+- ld -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _main hello.o
+
+hello.asm
+
+
+        global _main
+        section .text
+
+_main:
+        mov     rax, 0x2000004 ; write
+        mov     rdi, 1 ; stdout
+        mov     rsi, str
+        mov     rdx, str.len
+        syscall
+
+        mov     rax, 0x2000001 ; exit
+        xor     rdi, rdi
+        syscall
+
+    section .data
+str:    db      "holaaaa"
+.len:   equ     $ - str

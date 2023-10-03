@@ -1,17 +1,10 @@
-//
-// Assembler program to print "Hello World!"
-// to stdout.
-//
-// X0-X2 - parameters to Unix system calls
-// X16 - Mach System Call function number
-//
-
 .global _start			// Provide program starting address to linker
 .align 2			// Make sure everything is aligned properly
 
 // Setup the parameters to print hello world
 // and then call the Kernel to do it.
-_start: mov	X0, #1		// 1 = StdOut
+_start: 
+    mov	X0, #1		// 1 = StdOut
 	adr	X1, helloworld 	// string to print
 	mov	X2, #13	    	// length of our string
 	mov	X16, #4		// Unix write system call

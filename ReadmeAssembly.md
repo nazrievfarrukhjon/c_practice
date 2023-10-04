@@ -1,5 +1,5 @@
 # `assembly`
-> `x86`
+> `x86 (32-bit) Architecture: (32-bit x86)` 
 - <u>General-Purpose Registers:</u>
 - `eax` or `EAX` - ureturnu value for functions, Used for arithmetic and logic operations (accumulator)
 - `ebx` or `EBX`(Base) - used as pointer to data especialy in the context of arrays
@@ -24,10 +24,42 @@
 <u>Flags Register:</u>
 - `EFLAGS`: Contains various status flags, such as zero flag (ZF), carry flag (CF), overflow flag (OF), etc., which are modified after arithmetic and logical operations.
 
--
->
+#
+# `x64 (64-bit) Architecture: assembly operations`
+- MOV destination, source
+- ADD destination, source
+- SUB destination, source
+- IMUL destination, source  (IMUL: Integer multiply.)
+- IDIV divisor
+- AND destination, source
+- JMP target (JMP: Unconditional jump to a specified memory location.)
+- JE target
+- JNE target
+- CALL procedure
+- RET (RET: Return from a procedure.)
+- CMOVE destination, source
+- CMOVNE destination, source
+- LEA destination, source
+
+- `registers`
+- RAX - (Accumulator register, used in arithmetic operations and function return values.)
+- RBX - (Base register, used as a pointer to data (especially in the context of arrays).)
+- RCX - (Counter register, primarily used as a loop counter.)
+- RDX - (Data register, used in arithmetic operations, especially when the result is too large to fit in RAX.)
+- RSI - (Source index register, used as a source index for string operations.)
+- RDI - (Destination index register, used as a destination index for string operations.)
+- RBP - (Base pointer register, used as a base pointer for referencing the parameters and local variables of functions.)
+- RSP - (Stack pointer register, points to the top of the stack.)
+- `64-bit Index and Pointer Registers:`
+- R8, R9, R10, R11, R12, R13, R14, R15
+- XMM0 - XMM15
+- YMM0 - YMM15
+- ZMM0 - ZMM15:
 
 
+
+
+#
 # `LIST OF CPU ARCHITECTURES`
 - <u>`Embedded CPU architectures`</u>
 - ARM's ARM Architecture

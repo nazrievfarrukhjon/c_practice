@@ -83,3 +83,7 @@ ld salam.o -o salam
 - ld -m elf_i386 lol.o -o lol
 ./lol
 echo $?
+
+
+> run docker
+docker run -it -v "$(pwd)/assembly":/home/admin c_practice-ubuntu:latest bash

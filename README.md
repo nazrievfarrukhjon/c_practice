@@ -82,3 +82,4 @@ ld salam.o -o salam
 - nasm -f elf32 lol.asm -o lol.o 
 - ld -m elf_i386 lol.o -o lol
 ./lol
+echo $?

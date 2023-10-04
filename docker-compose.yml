@@ -7,6 +7,4 @@ services:
       dockerfile: Dockerfile
     container_name: ubuntu_x86
     volumes:
-      - .:/docker
-      - /docker/assembly
-
+      - ./docker/assembly:/home/admin

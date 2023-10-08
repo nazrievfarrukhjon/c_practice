@@ -152,3 +152,4 @@
 
 - https://github.com/torvalds/linux/blob/v4.17/arch/x86/entry/syscalls/syscall_32.tbl#L17
 
+- https://en.wikiversity.org/wiki/X86-64_Application_Binary_Interface

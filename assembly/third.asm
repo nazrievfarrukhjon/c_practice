@@ -1,14 +1,14 @@
 global _start
 section .data
-    addr db "yeeeeellow\n"
+    addr db "- yeeeeellow -"
 section .text
 _start:
-    mov [addr], byte 'H'    ;
-    mov [addr+5], word 65   ;
+    mov [addr], word '>'    ;
+    mov [addr+11], word '<'   ;
     mov eax, 4              ;
     mov ebx, 1              ;
     mov ecx, addr           ;
-    mov edx, 12              ;
+    mov edx, 16              ;
     int 0x80                ;
     mov eax, 1              ;
     mov ebx, 0              ;

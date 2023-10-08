@@ -87,3 +87,7 @@ echo $?
 
 > run docker
 docker run -it -v "$(pwd)/assembly":/home/admin c_practice-ubuntu:latest bash
+
+
+- note - docker containers for this project is not getting removed by gui so use cli
+- `docker rm mycontainer`

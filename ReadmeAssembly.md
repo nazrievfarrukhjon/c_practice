@@ -145,3 +145,10 @@
 - `LINK.EXE`, for Microsoft operating systems.
 - `ld`, which exists on all Unix systems; Windows programmers get this in any gcc distribution.
 
+
+> system call numbers for x86
+
+- https://filippo.io/linux-syscall-table/
+
+- https://github.com/torvalds/linux/blob/v4.17/arch/x86/entry/syscalls/syscall_32.tbl#L17
+

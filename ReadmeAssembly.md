@@ -153,3 +153,10 @@
 - https://github.com/torvalds/linux/blob/v4.17/arch/x86/entry/syscalls/syscall_32.tbl#L17
 
 - https://en.wikiversity.org/wiki/X86-64_Application_Binary_Interface
+
+
+> assembler + C
+- if we use C code in our assembly x86 code we need provide main lable. C will handle _start itself 
+
+- nasm -f elf32 eight.asm -o eight.o
+- gcc -m32 eight.o eight

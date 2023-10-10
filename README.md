@@ -91,3 +91,15 @@ docker run -it -v "$(pwd)/assembly":/home/admin c_practice-ubuntu:latest bash
 
 - note - docker containers for this project is not getting removed by gui so use cli
 - `docker rm mycontainer`
+
+
+
+> DOCKER multiple container on network
+- docker network ls
+- docker network inspect bridge
+- docker network inspect crm_network
+- add the nex to all docker composer yml files and add all containers to the crm_network
+- `networks:
+  crm_network:
+  external:
+  name: crm_network`

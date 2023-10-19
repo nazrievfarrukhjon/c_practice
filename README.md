@@ -151,3 +151,7 @@ If you have done everything correctly, it will display Hello, world! on the scre
 
 
  -In x86 assembly, the base pointer (ebp) is used to access parameters and local variables within a function. 
+
+
+
+ > (NASM + Linux + i386) LEARN it first!!!

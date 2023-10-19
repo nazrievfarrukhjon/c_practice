@@ -155,3 +155,13 @@ If you have done everything correctly, it will display Hello, world! on the scre
 
 
  > (NASM + Linux + i386) LEARN it first!!!
+
+ nasm -g -f elf -o file.o file.s
+ ld -m elf_i386 -o file file.o
+ echo $?
+
+ gdb myfile
+ return press enter
+ layout asm
+ break _qwe
+ run

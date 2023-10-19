@@ -85,3 +85,88 @@ pwd
 gdb tut
 ls
 gdb tut
+clear
+pwd
+ls
+gdb tut
+pwd
+clear
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+clear
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+clear
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+pwd
+clear
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+nasm -f elf32 tut.asm -o tut.o
+nasm -f elf32 tut.asm -o tut.o
+nasm -f elf32 tut.asm -o tut.o
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+clear
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+./tut
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+ld -m elf_i386 tut.o -o tut -e _qwe
+./tut
+clear
+ld -m elf_i386 tut.o -o tut
+nasm -f elf32 tut.asm -o tut.o
+ld -m elf_i386 tut.o -o tut
+ld -m elf_i386 tut.o -o tut -e _qwe
+./tut
+clear
+nasm -f elf -o tut.o tut.asm
+ld -m elf_i386 -o tut tut.o -e _qwe
+./tut
+echo $?
+gdb tut
+clear
+gdb tut
+chmod +x /home/admin/tut
+gdb tut
+ls
+pwd
+nasm -f elf -o tut.o tut.asm
+nasm -f elf -o tut.o tut.asm
+ld -m elf_i386 -o tut tut.o
+nasm -f elf -o tut.o tut.asm
+ld -m elf_i386 -o tut tut.o
+./tut
+gdb tut
+nasm -g -f elf -o tut.o tut.asm
+ld -m elf_i386 -o tut tut.o
+nasm -g -f elf -o tut.o tut.asm
+ld -m elf_i386 -o tut tut.o
+./tut
+gdb tut
+gdb tut
+clear
+nasm -g -f elf -o tut.o tut.asm
+ld -m elf_i386 -o tut tut.o
+sudo gdb ./tut
+gdb ./tut

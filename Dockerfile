@@ -4,7 +4,10 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
     nano \
-    libc6:i386 libncurses5:i386 libstdc++6:i386
+    libc6:i386 \
+    libncurses5:i386 \
+    libstdc++6:i386 \
+    gdb-multiarch
 
 RUN groupadd -g 1000 admin && \
     useradd -u 1000 -g admin -m -s /bin/bash admin

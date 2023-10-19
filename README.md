@@ -77,7 +77,7 @@ nasm -f elf64 salam.asm -o salam.o
 ld salam.o -o salam
 ./salam
 
-> x32 intel
+> x32 intel / COMPILATION/ compiling i386 / compiling x86 
 - docker run -it c_practice-ubuntu:latest bash
 - nasm -f elf32 lol.asm -o lol.o 
 - ld -m elf_i386 lol.o -o lol
@@ -103,3 +103,51 @@ docker run -it -v "$(pwd)/assembly":/home/admin c_practice-ubuntu:latest bash
   crm_network:
   external:
   name: crm_network`
+
+
+>
+segment  .text
+    global _start
+_start:
+    mov edx,len
+    mov ecx,msg
+    mov ebx,1
+    mov eax,4
+    int 0x80
+
+    mov eax,1
+    int 0x80
+
+segment .data
+
+msg db 'Hello, world!',0xa
+len equ $ - msg
+-----------------
+Type the above code using a text editor and save it as hello.asm.
+ Make sure that you are in the same directory as where you saved hello.asm.
+ To assemble the program, type nasm -f elf hello.asm
+ If there is any error, you will be prompted about that at this stage. Otherwise an object file of your program named hello.o will be created.
+ To link the object file and create an executable file named hello, type ld -m elf_i386 -s -o hello hello.o
+ Execute the program by typing ./hello
+If you have done everything correctly, it will display Hello, world! on the screen.
+
+
+
+- почему регистры делятся на дочерные правые и левые?
+
+  -      -       -       -
+ byte   byte    byte    byte    (EAX 4-bytes)
+        
+        
+  -       -
+ byte    byte (CX 2-bytes)
+
+  -           
+ byte (CH 1-byte)
+ 
+  -
+ byte(CL 1-byte)
+
+
+
+ -In x86 assembly, the base pointer (ebp) is used to access parameters and local variables within a function. 
